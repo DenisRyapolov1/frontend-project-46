@@ -5,4 +5,4 @@ lint:
 lint-fix:
 	npx eslint . --fix
 test:
-	NODE_OPTION=--experimental-vm-modules npx jest
+	NODE_OPTIONS=--experimental-vm-modules npx jest
