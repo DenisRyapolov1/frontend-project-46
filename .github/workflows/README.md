@@ -1,1 +1,0 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/10f18da4dfd460d157d9/maintainability)](https://codeclimate.com/github/DenisRyapolov1/frontend-project-46/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/10f18da4dfd460d157d9/test_coverage)](https://codeclimate.com/github/DenisRyapolov1/frontend-project-46/test_coverage)
