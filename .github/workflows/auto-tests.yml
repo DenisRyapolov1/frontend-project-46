@@ -1,31 +1,19 @@
-name: build
+name: hexlet-check
 
 on:
-  -push
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Cloning repos
-       uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Nodejs
-        uses: actions/setup-nodejs@v3
-
-      - name: Make lint
-        run: make lint
-
-      - name: Make test
-        run: make test 
-
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-          JACOCO_SOURCE_PATH: app/src/main/java
+      - name: Hexlet project check
+        uses: hexlet/project-action@release
         with:
-          coverageCommand: make report
-          coverageLocations: ${{github.workspace}}/app/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
-      
+          hexlet-id: ${{ secrets.HEXLET_ID }}
