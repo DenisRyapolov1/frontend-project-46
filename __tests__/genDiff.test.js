@@ -16,19 +16,19 @@ const __dirname = path.dirname(__filename);
 
 const options = { encoding: 'utf8', cwd: path.join(__dirname, '..') };
 const result1 = execSync(
-  'bin/gendiff.js --format stylish __fixtures__/file1.json __fixtures__/file2.json',
+  'bin/gendiff.js --format stylish __fixtures__/filepath1.json __fixtures__/filepath2.json',
   // @ts-ignore
   options,
 );
 
 const result2 = execSync(
-  'bin/gendiff.js --format plain __fixtures__/file1.json __fixtures__/file2.json',
+  'bin/gendiff.js --format plain __fixtures__/filepath1.json __fixtures__/filepath2.json',
   // @ts-ignore
   options,
 );
 
 const result3 = execSync(
-  'bin/gendiff.js --format json __fixtures__/file1.json __fixtures__/file2.json',
+  'bin/gendiff.js --format json __fixtures__/filepath1.json __fixtures__/filepath2.json',
   // @ts-ignore
   options,
 );
@@ -151,20 +151,20 @@ describe('createDiff', () => {
 
 describe('pathFile', () => {
   it('Выводит false в случае неправильного расширения файла', () => {
-    const diff1 = pathFile('__fixtures__/file1.json', '__fixtures__/file2.json', 'stylish');
+    const diff1 = pathFile('__fixtures__/filepath1.json', '__fixtures__/filepath2.json', 'stylish');
     expect(diff1).toBeTruthy();
     const diff2 = pathFile('__fixtures__/file1.yml', '__fixtures__/file2.yml', 'json');
     expect(diff2).toBeTruthy();
     const diff3 = pathFile('__fixtures__/file1.csgo', '__fixtures__/file2.csgo', 'plain');
     expect(diff3).toBeFalsy();
-    const diff4 = pathFile('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain');
+    const diff4 = pathFile('__fixtures__/file1path.json', '__fixtures__/filepath2.json', 'plain');
     expect(diff4).toBeTruthy();
   });
 });
 
 describe('parseJSONData', () => {
   it('Успешно парсит JSON файлы', () => {
-    const filepath1 = path.resolve('__fixtures__/file1.json');
+    const filepath1 = path.resolve('__fixtures__/filepath1.json');
     const data1 = {
       common: {
         setting1: 'Value 1',
@@ -192,7 +192,7 @@ describe('parseJSONData', () => {
       },
     };
     expect(parseJSONData(filepath1)).toEqual(data1);
-    const filepath2 = path.resolve('__fixtures__/file2.json');
+    const filepath2 = path.resolve('__fixtures__/filepath2.json');
     const data2 = {
       common: {
         follow: false,
@@ -250,7 +250,7 @@ describe('parseYAMLData', () => {
 
 describe('parseData', () => {
   it('Успешно парсит файлы и определяет их тип', () => {
-    const filepath1 = '__fixtures__/file1.json';
+    const filepath1 = '__fixtures__/filepath1.json';
     const data1 = {
       common: {
         setting1: 'Value 1',
