@@ -162,7 +162,6 @@ describe('pathFile', () => {
   });
 });
 
-
 describe('parseJSONData', () => {
   it('Успешно парсит JSON файлы', () => {
     const filepath1 = path.resolve('__fixtures__/filepath1.json');
