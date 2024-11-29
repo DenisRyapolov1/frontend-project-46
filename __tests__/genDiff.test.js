@@ -157,10 +157,11 @@ describe('pathFile', () => {
     expect(diff2).toBeTruthy();
     const diff3 = pathFile('__fixtures__/file1.csgo', '__fixtures__/file2.csgo', 'plain');
     expect(diff3).toBeFalsy();
-    const diff4 = pathFile('__fixtures__/file1path.json', '__fixtures__/filepath2.json', 'plain');
+    const diff4 = pathFile('__fixtures__/filepath1.json', '__fixtures__/filepath2.json', 'plain');
     expect(diff4).toBeTruthy();
   });
 });
+
 
 describe('parseJSONData', () => {
   it('Успешно парсит JSON файлы', () => {
